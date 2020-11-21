@@ -191,9 +191,8 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Logistic regression is used to solve the classification problem. Classification problem means the dependent variable is categorical. For example, we can build a machine learning model to predict whether a student will be admitted to college based on metrics like his or her GPA, standardized test scores. If we formulate a classification problem in mathematical form, we have:</p>
-\begin{equation}
-y = \beta_{0} + \beta_{1}x_{1} + \beta_{2}x_{2},
-\end{equation}<p>where y is a categorical variable, like whether you are admited or not.</p>
+$$y = \beta_{0} + \beta_{1}x_{1} + \beta_{2}x_{2}$$<p>,</p>
+<p>where y is a categorical variable, like whether you are admited or not.</p>
 <p>One way to approach this problem is by using linear regression. However, we would like our algorithm will output a number between 0 and 1, which can indicate the probability of an observation belonging to a certain category. Linear regression does not satisfy this requirement as it might output values smaller than 0 or larger than 1.</p>
 <p>One solution is to solve this problem is to transform the value of $\beta_{0} + \beta_{1}x_{1} + \beta_{2}x_{2}$ to the range of [0,1]. We can do this with the logistic function:
 $$f(x)=\frac{e^{x}}{1+e^{x}}$$.</p>
