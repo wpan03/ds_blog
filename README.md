@@ -15,8 +15,8 @@ I will be very happy if my efforts can help someone better understand these topi
 The majority of my blog is stored in [this site](https://wpan03.github.io/ds_blog/) built with [fastpages](https://github.com/fastai/fastpages). I write about following topics:
 
 + My understanding of certain topics that once confused me
-+ Implementation of certain methods that I have a hard time to find online
-+ My notes for books I read or courses I take 
++ Implementation of certain methods that I had a hard time to find online
++ My notes for books I read or courses I took
 
 I also have [a separate blog](https://rpubs.com/haha_pan) website for R since it is nicely integrated with R Studio.
 
