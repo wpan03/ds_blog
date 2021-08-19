@@ -228,14 +228,15 @@ docker run <span class="nt">--rm</span> <span class="nt">-it</span> datasciencet
 <p>There are several useful syntaxes I learn from the book.</p>
 
 <ol>
-  <li>The following command prints the variable in the variable <code class="language-plaintext highlighter-rouge">PATH</code> into separate lines, which can be helpful to debug issues around the environment path.</li>
-</ol>
+  <li>
+    <p>The following command prints the variable in the variable <code class="language-plaintext highlighter-rouge">PATH</code> into separate lines, which can be helpful to debug issues around the environment path.</p>
 
-<div class="language-zsh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo</span> <span class="nv">$PATH</span> | <span class="nb">tr</span> <span class="s1">':'</span> <span class="s1">'\n'</span>
-</code></pre></div></div>
-
-<ol>
-  <li>Shebang
+    <div class="language-zsh highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="nb">echo</span> <span class="nv">$PATH</span> | <span class="nb">tr</span> <span class="s1">':'</span> <span class="s1">'\n'</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p><a href="https://en.wikipedia.org/wiki/Shebang_(Unix)">Shebang</a></p>
     <ul>
       <li>From the book: “The <em>shebang</em> is a special line in the script that instructs the system which executable it should use to interpret the commands.”</li>
       <li>You can see an example of <em>shebang</em> below. (<code class="language-plaintext highlighter-rouge">#!/usr/bin/env python</code> in the Python script).</li>
