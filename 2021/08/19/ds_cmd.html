@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Notes from Data Science at the Command Line | fastpages</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Notes from Data Science at the Command Line" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="In this post, I want to write down some ideas from Jeroen Janssens’s book Data Science at the Command Line, 2e. Instead of being a comprehensive overview of the book, this note only picks some ideas that add to my existing knowledge and hopefully it can bring some new thoughts to you. Of course, this blog post reflects my personal understanding and all errors remain mine." />
+<meta property="og:description" content="In this post, I want to write down some ideas from Jeroen Janssens’s book Data Science at the Command Line, 2e. Instead of being a comprehensive overview of the book, this note only picks some ideas that add to my existing knowledge and hopefully it can bring some new thoughts to you. Of course, this blog post reflects my personal understanding and all errors remain mine." />
+<link rel="canonical" href="https://wpan03.github.io/ds_blog/2021/08/19/ds_cmd.html" />
+<meta property="og:url" content="https://wpan03.github.io/ds_blog/2021/08/19/ds_cmd.html" />
+<meta property="og:site_name" content="fastpages" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-08-19T00:00:00-05:00" />
+<script type="application/ld+json">
+{"description":"In this post, I want to write down some ideas from Jeroen Janssens’s book Data Science at the Command Line, 2e. Instead of being a comprehensive overview of the book, this note only picks some ideas that add to my existing knowledge and hopefully it can bring some new thoughts to you. Of course, this blog post reflects my personal understanding and all errors remain mine.","url":"https://wpan03.github.io/ds_blog/2021/08/19/ds_cmd.html","@type":"BlogPosting","headline":"Notes from Data Science at the Command Line","dateModified":"2021-08-19T00:00:00-05:00","datePublished":"2021-08-19T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://wpan03.github.io/ds_blog/2021/08/19/ds_cmd.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/ds_blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://wpan03.github.io/ds_blog/feed.xml" title="fastpages" /><link rel="shortcut icon" type="image/x-icon" href="/ds_blog/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js" integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha512-0doc9hKxR3PYwso42RD1p5ySZpzzuDiOwMrdCEh2WdJZCjcmFKc/wEnL+z8fBQrnHoiNWbo+3fiGkOYXBdQp4A==" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/ds_blog/">fastpages</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/ds_blog/about/">About Me</a><a class="page-link" href="/ds_blog/search/">Search</a><a class="page-link" href="/ds_blog/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Notes from *Data Science at the Command Line*</h1><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-08-19T00:00:00-05:00" itemprop="datePublished">
+        Aug 19, 2021
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      8 min read
+    
+</span></p>
+
+    
+
+    </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#introduction">Introduction</a></li>
+<li class="toc-entry toc-h2"><a href="#useful-tools">Useful Tools</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#docker">Docker</a></li>
+<li class="toc-entry toc-h3"><a href="#make">Make</a></li>
+<li class="toc-entry toc-h3"><a href="#other-tools">Other tools</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#syntax-trick">Syntax Trick</a></li>
+<li class="toc-entry toc-h2"><a href="#integration-with-python">Integration with Python</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#shell-command-in-jupyter">Shell Command in Jupyter</a></li>
+<li class="toc-entry toc-h3"><a href="#use-python-to-write-shell-scripts">Use Python to Write Shell Scripts</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#useful-resources">Useful Resources</a></li>
+</ul><p>In this post, I want to write down some ideas from Jeroen Janssens’s book <a href="https://www.datascienceatthecommandline.com/2e/index.html"><em>Data Science at the Command Line, 2e</em></a>. Instead of being a comprehensive overview of the book, this note only picks some ideas that add to my existing knowledge and hopefully it can bring some new thoughts to you. Of course, this blog post reflects my personal understanding and all errors remain mine.</p>
+
+<h2 id="introduction">
+<a class="anchor" href="#introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introduction</h2>
+
+<p>The original book can be divided into two parts. The first part covers how to use the command line to do four essential parts of data science: (1) obtaining data, (2) scrubbing data, (3) exploring data, (4) modeling data. The second part of the book introduces some useful command-line tools and methods for doing data science, including: (1) create command-line tools with shell script, Python and R; (2) use Makefile to do project and pipeline management; (3) implement parallel computing in the command line; (4) incorporate command line tools into other programming languages, including Python, R and Spark.</p>
+
+<p>However, to summarize my learning, I will break this blog post into four parts:</p>
+
+<ul>
+  <li>Useful tools: some command line packages and tools, including <code class="language-plaintext highlighter-rouge">Docker</code>, <code class="language-plaintext highlighter-rouge">Make</code>, and few other packages.</li>
+  <li>Syntax tricks: some useful syntax that can be helpful for daily work.</li>
+  <li>Integration with Python: how to combine the power of command line tools with Python.</li>
+  <li>Useful Resources: some interesting resources for further learning.</li>
+</ul>
+
+<h2 id="useful-tools">
+<a class="anchor" href="#useful-tools" aria-hidden="true"><span class="octicon octicon-link"></span></a>Useful Tools</h2>
+
+<h3 id="docker">
+<a class="anchor" href="#docker" aria-hidden="true"><span class="octicon octicon-link"></span></a>Docker</h3>
+
+<p>Docker in itself is a fascinating but complex topic and thus is beyond the scope of this blog and the original book. However, one idea I learn from the book is how the author uses Docker as an educational tool, which allows users to set up the same environment and follow the book easily. After <a href="https://docs.docker.com/get-docker/">installing Docker</a>, just running two lines of code in the command line will set up the prepared environment from the book.</p>
+
+<div class="language-zsh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker pull datasciencetoolbox/dsatcl2e
+docker run <span class="nt">--rm</span> <span class="nt">-it</span> datasciencetoolbox/dsatcl2e
+</code></pre></div></div>
+
+<p>Another trick about Docker I learned is how the author uses the <code class="language-plaintext highlighter-rouge">-v</code> flag to get data in and out of container with a command like the following. (In macOS or Linux).</p>
+
+<div class="language-zsh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker run <span class="nt">--rm</span> <span class="nt">-it</span> <span class="nt">-v</span> <span class="s2">"</span><span class="si">$(</span><span class="nb">pwd</span><span class="si">)</span><span class="s2">"</span>:/data datasciencetoolbox/dsatcl2e
+</code></pre></div></div>
+
+<p>The author recommended another book called <em>Docker: Up &amp; Running</em> to learn more about Docker. You can see this <a href="https://docker-curriculum.com/">A Docker Tutorial for Beginners</a> to learn more about Docker.</p>
+
+<h3 id="make">
+<a class="anchor" href="#make" aria-hidden="true"><span class="octicon octicon-link"></span></a>Make</h3>
+
+<p>I was fortunate enough to learn and use <a href="https://makefiletutorial.com/">make</a> in the past, which is one of the most valuable tools I learned in 2021. If you haven’t learned, you should check out chapter 6 of <a href="https://www.datascienceatthecommandline.com/2e/index.html"><em>Data Science at the Command Line, 2e</em></a> to learn about it. <code class="language-plaintext highlighter-rouge">make</code> provides a nice way to build a data science pipeline and simplify complex commands.</p>
+
+<p>I will only highlight few tips I learn from chapter 6 here.</p>
+
+<ol>
+  <li>
+    <p>If the configuration file is not called <code class="language-plaintext highlighter-rouge">Makefile</code> (usually you shouldn’t do this), you can run still run the file with a <code class="language-plaintext highlighter-rouge">-f</code> flag. For example, if you name the configuration file <code class="language-plaintext highlighter-rouge">hello.make</code>, I can run it with the following:</p>
+
+    <div class="language-zsh highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>make <span class="nt">-f</span> hello.make
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>You can use the automatic variable <code class="language-plaintext highlighter-rouge">$@</code> to avoid some duplicates. For example, the following two commands will be equivalent.</p>
+
+    <div class="language-makefile highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="nl">numbers</span><span class="o">:</span>
+	<span class="nb">seq </span>7 <span class="o">&gt;</span> <span class="nv">$@</span>
+   	
+<span class="nl">numbers</span><span class="o">:</span>
+ <span class="err">seq</span> <span class="err">7</span> <span class="err">&gt;</span> <span class="err">numbers</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>We can change the configuration of the make with the following codes in the top of the <code class="language-plaintext highlighter-rouge">Makefile</code></p>
+
+    <div class="language-makefile highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="nv">SHELL</span> <span class="o">:=</span> bash
+<span class="nv">.SHELLFLAGS</span> <span class="o">:=</span> <span class="nt">-eu</span> <span class="nt">-o</span> pipefail <span class="nt">-c</span>
+</code></pre></div>    </div>
+
+    <p>I will directly quote the author to explain this:</p>
+
+    <blockquote>
+      <ol>
+        <li>All rules are executed in a shell, which by default, is <code class="language-plaintext highlighter-rouge">sh</code>. With the <em><code class="language-plaintext highlighter-rouge">SHELL</code></em> variable we can change this to another shell, like <code class="language-plaintext highlighter-rouge">bash</code>. This way we can use everything that Bash has to offer such as for loops.</li>
+        <li>The <em><code class="language-plaintext highlighter-rouge">.SHELLFLAGS</code></em> line makes Bash more strict, which is considered a <a href="http://redsymbol.net/articles/unofficial-bash-strict-mode/">best practice</a>. For example, because of this, the pipeline in the rule for target <em><code class="language-plaintext highlighter-rouge">top10</code></em> now stops as soon as there is an error.</li>
+      </ol>
+    </blockquote>
+  </li>
+</ol>
+
+<h3 id="other-tools">
+<a class="anchor" href="#other-tools" aria-hidden="true"><span class="octicon octicon-link"></span></a>Other tools</h3>
+
+<p>There are two command line packages introduced in the book I particularly like: <a href="https://github.com/sharkdp/bat">bat</a> and <a href="https://tldr.sh/">tldr</a>. Note that usually these two tools are not pre-installed and thus you need to install them with instructions from the link.</p>
+
+<p><code class="language-plaintext highlighter-rouge">bat</code> is an enhanced version of the common command-line tool <code class="language-plaintext highlighter-rouge">cat</code>. The following picture shows three benefits from <code class="language-plaintext highlighter-rouge">bat</code>:</p>
+
+<ul>
+  <li>It provides syntax highlighting.</li>
+  <li>It shows modification information from <code class="language-plaintext highlighter-rouge">git</code> (see the red line in line 10).</li>
+  <li>When showing a long file, instead of overwhelming the terminal with all the information like <code class="language-plaintext highlighter-rouge">cat</code>, it pipes the output to a pager like the <code class="language-plaintext highlighter-rouge">less</code> command.</li>
+</ul>
+
+<p><img src="../images/ds_cmd_pictures/bat_demo.png" alt="bat_demo" style="zoom: 50%;"></p>
+
+<p><code class="language-plaintext highlighter-rouge">tldr</code> aims to simplify the <code class="language-plaintext highlighter-rouge">man</code> command manual with concrete examples. Consider the following two manuals for the <code class="language-plaintext highlighter-rouge">find</code> command.</p>
+
+<p><img src="../images/ds_cmd_pictures/find_man.png" alt="find_man" style="zoom:50%;"></p>
+
+<p><img src="../images/ds_cmd_pictures/find_tldr.png" alt="find_tldr" style="zoom:50%;"></p>
+
+<p>If you are not looking for some advanced and specific usages, the output page from <code class="language-plaintext highlighter-rouge">tldr</code> provides simpler and more useful instructions for understanding a command.</p>
+
+<h2 id="syntax-trick">
+<a class="anchor" href="#syntax-trick" aria-hidden="true"><span class="octicon octicon-link"></span></a>Syntax Trick</h2>
+
+<p>There are several useful syntaxes I learn from the book.</p>
+
+<ol>
+  <li>The following command prints the variable in the variable <code class="language-plaintext highlighter-rouge">PATH</code> into separate lines, which can be helpful to debug issues around the environment path.</li>
+</ol>
+
+<div class="language-zsh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo</span> <span class="nv">$PATH</span> | <span class="nb">tr</span> <span class="s1">':'</span> <span class="s1">'\n'</span>
+</code></pre></div></div>
+
+<ol>
+  <li>
+<a href="https://en.wikipedia.org/wiki/Shebang_(Unix)">Shebang</a>
+    <ul>
+      <li>From the book: “The <em>shebang</em> is a special line in the script that instructs the system which executable it should use to interpret the commands.”</li>
+      <li>You can see an example of <em>shebang</em> below. (<code class="language-plaintext highlighter-rouge">#!/usr/bin/env python</code> in the Python script).</li>
+      <li>The author recommends using commands like <code class="language-plaintext highlighter-rouge">!/usr/bin/env bash</code> instead of <code class="language-plaintext highlighter-rouge">!/usr/bin/bash</code> because this can avoid errors when executables are not in <code class="language-plaintext highlighter-rouge">/usr/bin</code>.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="integration-with-python">
+<a class="anchor" href="#integration-with-python" aria-hidden="true"><span class="octicon octicon-link"></span></a>Integration with Python</h2>
+
+<p>Another useful thing I learned is to combine shell commands with Python. Specifically, there are two ways: (1) using shell command in Jupyter; (2) using Python to write shell scripts.</p>
+
+<h3 id="shell-command-in-jupyter">
+<a class="anchor" href="#shell-command-in-jupyter" aria-hidden="true"><span class="octicon octicon-link"></span></a>Shell Command in Jupyter</h3>
+
+<p>In a Python code shell of jupyter notebook or jupyter lab, we can call use shell commands by adding <code class="language-plaintext highlighter-rouge">!</code> before the command. For example, we can list the file in the current directory with</p>
+
+<pre><code class="language-Python">! ls
+</code></pre>
+
+<p>Or even assign the output of the command line to a Python variable. For example, we can do:</p>
+
+<pre><code class="language-Python">file_list = ! ls
+</code></pre>
+
+<p>This functionality allows us to utilize the brevity of shell commands to achieve things quickly. One example the author gives in the book is about downloading a file from the Internet.</p>
+
+<pre><code class="language-Python">url = "https://www.gutenberg.org/files/11/old/11.txt"
+
+# Command line way (curly braces allow us to add python variable)
+! curl '{url}' &gt; alice3.txt
+
+# Python way
+import requests 
+
+with open("alice2.txt", "wb") as f:
+  response = requests.get(url)
+  f.write(response.content)
+</code></pre>
+
+<p>As we can see, the command line achieves the same thing with less code but still being easy to understand.</p>
+
+<p>Another syntax trick is that if you want to use literal curly braces for command line, you can type it twice in jupyter like the following:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">!</span> <span class="n">rm</span> <span class="o">-</span><span class="n">v</span> <span class="n">alice2</span><span class="p">.</span><span class="n">txt</span>
+</code></pre></div></div>
+
+<h3 id="use-python-to-write-shell-scripts">
+<a class="anchor" href="#use-python-to-write-shell-scripts" aria-hidden="true"><span class="octicon octicon-link"></span></a>Use Python to Write Shell Scripts</h3>
+
+<p>We can create a shell script with Python and combine it into a command line pipeline. One example the author gives in the book is a script for the <a href="https://en.wikipedia.org/wiki/Fizz_buzz">Fizz Buzz problem</a>. The script is called <code class="language-plaintext highlighter-rouge">fizzbuzz.py</code>.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#!/usr/bin/env python
+</span><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="n">CYCLE_OF_15</span> <span class="o">=</span> <span class="p">[</span><span class="s">"fizzbuzz"</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="s">"fizz"</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span>
+               <span class="s">"buzz"</span><span class="p">,</span> <span class="s">"fizz"</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="s">"fizz"</span><span class="p">,</span>
+               <span class="s">"buzz"</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="s">"fizz"</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">]</span>
+
+<span class="c1">## See the usage of type hint with :int and -&gt; str
+</span><span class="k">def</span> <span class="nf">fizz_buzz</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="c1">## In Python, (None or 1) = 1 ('buzz' or 5) = 'buzz'
+</span>    <span class="c1">## if the first element in or is evaluated as 
+</span>    <span class="c1">## None or False, it will go to the second element
+</span>    <span class="k">return</span> <span class="n">CYCLE_OF_15</span><span class="p">[</span><span class="n">n</span> <span class="o">%</span> <span class="mi">15</span><span class="p">]</span> <span class="ow">or</span> <span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1">## See the walrus operator := below
+</span>        <span class="c1">## which allows assign and evaluate at the same time
+</span>        <span class="k">while</span> <span class="p">(</span><span class="n">n</span><span class="p">:</span><span class="o">=</span> <span class="n">sys</span><span class="p">.</span><span class="n">stdin</span><span class="p">.</span><span class="n">readline</span><span class="p">()):</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">fizz_buzz</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="p">)))</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">pass</span>
+</code></pre></div></div>
+
+<p>With this script, you can combine it into a command line pipeline with the following command, which will show the result of Fizz Buzz problem for number from 1 to 30.</p>
+
+<div class="language-zsh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">seq </span>30 | ./fizzbuzz.py | column <span class="nt">-x</span>
+</code></pre></div></div>
+
+<p>Another thing I like is the way the author writes the Python code. In the simple script above, we can learn several Python techniques, including the <a href="https://towardsdatascience.com/the-walrus-operator-7971cd339d7d">walrus operator</a> introduced in Python 3.8, type hint for functions, and the usage of <code class="language-plaintext highlighter-rouge">or</code>. I wrote my own comment with <code class="language-plaintext highlighter-rouge">##</code> in the command to annotate them.</p>
+
+<h2 id="useful-resources">
+<a class="anchor" href="#useful-resources" aria-hidden="true"><span class="octicon octicon-link"></span></a>Useful Resources</h2>
+
+<p>The first resource is definitely to read through the book <a href="https://www.datascienceatthecommandline.com/2e/index.html"><em>Data Science at the Command Line, 2e</em></a>, which has a free online version. This blog only reflects my personal learning. Given everyone’s unique background, you are likely to learn something different from the book. In addition to that, the author also recommends several resources inside the book which I find interesting:</p>
+
+<ul>
+  <li>
+<em>Thinking with Data</em>: this book seems to be a friendly introduction to how to approach real-world problems with a data-driven approach</li>
+  <li>
+<a href="https://explainshell.com/">Explain Shell</a>: a useful website that parses a command in the shell and explain the usage of each part</li>
+  <li>
+<em>Ten Essays on Fizz Buzz</em>: a book that discusses very aspects of Python and software design more general through 10 solutions for the Fizz Buzz problem</li>
+  <li>
+<em>Pro Git</em>: a comprehensive guide to <code class="language-plaintext highlighter-rouge">git</code>
+</li>
+  <li>
+<em>Regular Expressions Cookbook</em>: a guide for regular expressions</li>
+</ul>
+
+<p>I hadn’t read any of the books above in detail but plan to do so and will try to share my notes for them once I finished.</p>
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="wpan03/ds_blog"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/ds_blog/2021/08/19/ds_cmd.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/ds_blog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/ds_blog/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/ds_blog/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/fastai" title="fastai"><svg class="svg-icon grey"><use xlink:href="/ds_blog/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/fastdotai" title="fastdotai"><svg class="svg-icon grey"><use xlink:href="/ds_blog/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
