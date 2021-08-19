@@ -255,28 +255,28 @@ docker run <span class="nt">--rm</span> <span class="nt">-it</span> datasciencet
 
 <p>In a Python code shell of jupyter notebook or jupyter lab, we can call use shell commands by adding <code class="language-plaintext highlighter-rouge">!</code> before the command. For example, we can list the file in the current directory with</p>
 
-<pre><code class="language-Python">! ls
-</code></pre>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">!</span> <span class="n">ls</span>
+</code></pre></div></div>
 
 <p>Or even assign the output of the command line to a Python variable. For example, we can do:</p>
 
-<pre><code class="language-Python">file_list = ! ls
-</code></pre>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">file_list</span> <span class="o">=</span> <span class="err">!</span> <span class="n">ls</span>
+</code></pre></div></div>
 
 <p>This functionality allows us to utilize the brevity of shell commands to achieve things quickly. One example the author gives in the book is about downloading a file from the Internet.</p>
 
-<pre><code class="language-Python">url = "https://www.gutenberg.org/files/11/old/11.txt"
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">url</span> <span class="o">=</span> <span class="s">"https://www.gutenberg.org/files/11/old/11.txt"</span>
 
-# Command line way (curly braces allow us to add python variable)
-! curl '{url}' &gt; alice3.txt
+<span class="c1"># Command line way (curly braces allow us to add python variable)
+</span><span class="err">!</span> <span class="n">curl</span> <span class="s">'{url}'</span> <span class="o">&gt;</span> <span class="n">alice3</span><span class="p">.</span><span class="n">txt</span>
 
-# Python way
-import requests 
+<span class="c1"># Python way
+</span><span class="kn">import</span> <span class="nn">requests</span> 
 
-with open("alice2.txt", "wb") as f:
-  response = requests.get(url)
-  f.write(response.content)
-</code></pre>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">"alice2.txt"</span><span class="p">,</span> <span class="s">"wb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+  <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+  <span class="n">f</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">content</span><span class="p">)</span>
+</code></pre></div></div>
 
 <p>As we can see, the command line achieves the same thing with less code but still being easy to understand.</p>
 
