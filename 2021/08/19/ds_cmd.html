@@ -280,7 +280,10 @@ docker run <span class="nt">--rm</span> <span class="nt">-it</span> datasciencet
 
 <p>As we can see, the command line achieves the same thing with less code but still being easy to understand.</p>
 
-<p>Another syntax trick is that if you want to use literal curly braces for command line, you can type it twice in jupyter like the following: <code class="language-plaintext highlighter-rouge">! rm -v alice2.txt</code>.</p>
+<p>Another syntax trick is that if you want to use literal curly braces for command line, you can type it twice in jupyter like the following:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">!</span> <span class="n">rm</span> <span class="o">-</span><span class="n">v</span> <span class="n">alice</span><span class="p">{{</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">}}.</span><span class="n">txt</span>
+</code></pre></div></div>
 
 <h3 id="use-python-to-write-shell-scripts">
 <a class="anchor" href="#use-python-to-write-shell-scripts" aria-hidden="true"><span class="octicon octicon-link"></span></a>Use Python to Write Shell Scripts</h3>
