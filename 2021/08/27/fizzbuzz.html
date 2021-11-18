@@ -1,0 +1,1567 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>My Take for Ten Essays ON FIZZ BUZZ | fastpages</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="My Take for Ten Essays ON FIZZ BUZZ" />
+<meta name="author" content="Martin Pan" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="An easy to use blogging platform with support for Jupyter Notebooks." />
+<meta property="og:description" content="An easy to use blogging platform with support for Jupyter Notebooks." />
+<link rel="canonical" href="https://wpan03.github.io/ds_blog/2021/08/27/fizzbuzz.html" />
+<meta property="og:url" content="https://wpan03.github.io/ds_blog/2021/08/27/fizzbuzz.html" />
+<meta property="og:site_name" content="fastpages" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-08-27T00:00:00-05:00" />
+<script type="application/ld+json">
+{"description":"An easy to use blogging platform with support for Jupyter Notebooks.","url":"https://wpan03.github.io/ds_blog/2021/08/27/fizzbuzz.html","@type":"BlogPosting","headline":"My Take for Ten Essays ON FIZZ BUZZ","dateModified":"2021-08-27T00:00:00-05:00","datePublished":"2021-08-27T00:00:00-05:00","author":{"@type":"Person","name":"Martin Pan"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://wpan03.github.io/ds_blog/2021/08/27/fizzbuzz.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/ds_blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://wpan03.github.io/ds_blog/feed.xml" title="fastpages" /><link rel="shortcut icon" type="image/x-icon" href="/ds_blog/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js" integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha512-0doc9hKxR3PYwso42RD1p5ySZpzzuDiOwMrdCEh2WdJZCjcmFKc/wEnL+z8fBQrnHoiNWbo+3fiGkOYXBdQp4A==" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/ds_blog/">fastpages</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/ds_blog/R_blog/R_tricks.Rmd">What I wish I knew about R</a><a class="page-link" href="/ds_blog/about/">About Me</a><a class="page-link" href="/ds_blog/search/">Search</a><a class="page-link" href="/ds_blog/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">My Take for *Ten Essays ON FIZZ BUZZ*</h1><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-08-27T00:00:00-05:00" itemprop="datePublished">
+        Aug 27, 2021
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">Martin Pan</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      14 min read
+    
+</span></p>
+
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          <div class="px-2">
+
+    <a href="https://github.com/wpan03/ds_blog/tree/master/_notebooks/2021-08-27-fizzbuzz.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/ds_blog/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/wpan03/ds_blog/master?filepath=_notebooks%2F2021-08-27-fizzbuzz.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/ds_blog/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/wpan03/ds_blog/blob/master/_notebooks/2021-08-27-fizzbuzz.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/ds_blog/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#Introduction">Introduction </a></li>
+<li class="toc-entry toc-h2"><a href="#Testing">Testing </a></li>
+<li class="toc-entry toc-h2"><a href="#100-Print">100 Print </a></li>
+<li class="toc-entry toc-h2"><a href="#Standard-Way">Standard Way </a></li>
+<li class="toc-entry toc-h2"><a href="#Cycle-of-15">Cycle of 15 </a></li>
+<li class="toc-entry toc-h2"><a href="#Euclid's-Solution">Euclid&#39;s Solution </a></li>
+<li class="toc-entry toc-h2"><a href="#Trigonometry">Trigonometry </a></li>
+<li class="toc-entry toc-h2"><a href="#A-Big-Number">A Big Number </a></li>
+<li class="toc-entry toc-h2"><a href="#Infinite-Iterables">Infinite Iterables </a></li>
+<li class="toc-entry toc-h2"><a href="#Random-Guessing">Random Guessing </a></li>
+<li class="toc-entry toc-h2"><a href="#Matrix-Multiplication">Matrix Multiplication </a></li>
+<li class="toc-entry toc-h2"><a href="#Machine-Learning">Machine Learning </a></li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2021-08-27-fizzbuzz.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">itertools</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">Iterator</span><span class="p">,</span> <span class="n">NamedTuple</span><span class="p">,</span> <span class="n">List</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">from</span> <span class="nn">torch.utils.data</span> <span class="kn">import</span> <span class="n">DataLoader</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Introduction">
+<a class="anchor" href="#Introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introduction<a class="anchor-link" href="#Introduction"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<blockquote>
+<p>Write a short program that prints each number from 1 to 100 on a new line.
+  For each multiple of 3, print "Fizz" instead of the number.
+  For each multiple of 5, print "Buzz" instead of the number.
+  For numbers which are multiples of both 3 and 5, print "FizzBuzz" instead of the number.</p>
+</blockquote>
+<p>You probably have seen this problem many times before. This is the "Fizz Buzz" problem sometimes shows up in a code interview. Joel Grus wrote an intriguing and insightful book <a href="https://www.google.com/search?q=ten+essays+on+fizz+buzz&amp;rlz=1C5CHFA_enUS901US902&amp;oq=Ten+Ess&amp;aqs=chrome.0.69i59j0i512j69i57j69i59j0i512j69i61j69i60l2.2461j0j7&amp;sourceid=chrome&amp;ie=UTF-8"><em>Ten Essays ON FIZZ BUZZ</em></a> to discuss 10 different solutions for this problem in Python and gives informative discusssions about various aspects of Python, mathematics, and software design.
+This blog post is my attempts to explain the 10 solutions in the book.</p>
+<p>If you plan to read the book (highly recommended!), I hope this blog can give you another perspective to understand the content in the book. If you don't plan to do so, I hope this blog can at least give some knowledge I learned from the book to you.</p>
+<p>Most of the codes for those 10 solutions come from <a href="https://github.com/joelgrus/fizzbuzz">Joel Gru's repository</a>. I make small adjustments to run all those solutions in one notebook. Of course, all errors remain mine.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Testing">
+<a class="anchor" href="#Testing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Testing<a class="anchor-link" href="#Testing"> </a>
+</h2>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">test_fizzbuzz_20</span><span class="p">(</span><span class="nb">input</span><span class="p">:</span> <span class="n">List</span><span class="p">):</span>
+    <span class="n">first_20</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'1'</span><span class="p">,</span> <span class="s1">'2'</span><span class="p">,</span> <span class="s1">'fizz'</span><span class="p">,</span> <span class="s1">'4'</span><span class="p">,</span> <span class="s1">'buzz'</span><span class="p">,</span> <span class="s1">'fizz'</span><span class="p">,</span> <span class="s1">'7'</span><span class="p">,</span> <span class="s1">'8'</span><span class="p">,</span> <span class="s1">'fizz'</span><span class="p">,</span>
+                <span class="s1">'buzz'</span><span class="p">,</span> <span class="s1">'11'</span><span class="p">,</span> <span class="s1">'fizz'</span><span class="p">,</span> <span class="s1">'13'</span><span class="p">,</span> <span class="s1">'14'</span><span class="p">,</span> <span class="s1">'fizzbuzz'</span><span class="p">,</span> <span class="s1">'16'</span><span class="p">,</span> <span class="s1">'17'</span><span class="p">,</span>
+                <span class="s1">'fizz'</span><span class="p">,</span> <span class="s1">'19'</span><span class="p">,</span> <span class="s1">'buzz'</span><span class="p">]</span>
+    <span class="k">assert</span> <span class="nb">input</span> <span class="o">==</span> <span class="n">first_20</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'Tess Passed'</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="100-Print">
+<a class="anchor" href="#100-Print" aria-hidden="true"><span class="octicon octicon-link"></span></a>100 Print<a class="anchor-link" href="#100-Print"> </a>
+</h2>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">fizz_buzz_brute</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">fizz_buzz</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">'1'</span><span class="p">,</span> <span class="s1">'2'</span><span class="p">,</span> <span class="s1">'fizz'</span><span class="p">,</span> <span class="s1">'4'</span><span class="p">,</span> <span class="s1">'buzz'</span><span class="p">,</span> <span class="s1">'fizz'</span><span class="p">,</span> <span class="s1">'7'</span><span class="p">,</span> <span class="s1">'8'</span><span class="p">,</span> <span class="s1">'fizz'</span><span class="p">,</span>
+        <span class="s1">'buzz'</span><span class="p">,</span> <span class="s1">'11'</span><span class="p">,</span> <span class="s1">'fizz'</span><span class="p">,</span> <span class="s1">'13'</span><span class="p">,</span> <span class="s1">'14'</span><span class="p">,</span> <span class="s1">'fizzbuzz'</span><span class="p">,</span> <span class="s1">'16'</span><span class="p">,</span> <span class="s1">'17'</span><span class="p">,</span>
+        <span class="s1">'fizz'</span><span class="p">,</span> <span class="s1">'19'</span><span class="p">,</span> <span class="s1">'buzz'</span><span class="p">,</span> <span class="s1">'fizz'</span><span class="p">,</span> <span class="s1">'22'</span><span class="p">,</span> <span class="s1">'23'</span><span class="p">,</span> <span class="s1">'fizz'</span><span class="p">,</span> <span class="s1">'buzz'</span><span class="p">,</span>
+        <span class="s1">'26'</span><span class="p">,</span> <span class="s1">'fizz'</span><span class="p">,</span> <span class="s1">'28'</span><span class="p">,</span> <span class="s1">'29'</span><span class="p">,</span> <span class="s1">'fizzbuzz'</span><span class="p">,</span> <span class="s1">'31'</span><span class="p">,</span> <span class="s1">'32'</span><span class="p">,</span> <span class="s1">'fizz'</span><span class="p">,</span>
+        <span class="s1">'34'</span><span class="p">,</span> <span class="s1">'buzz'</span><span class="p">,</span> <span class="s1">'fizz'</span><span class="p">,</span> <span class="s1">'37'</span><span class="p">,</span> <span class="s1">'38'</span><span class="p">,</span> <span class="s1">'fizz'</span><span class="p">,</span> <span class="s1">'buzz'</span><span class="p">,</span> <span class="s1">'41'</span><span class="p">,</span>
+        <span class="s1">'fizz'</span><span class="p">,</span> <span class="s1">'43'</span><span class="p">,</span> <span class="s1">'44'</span><span class="p">,</span> <span class="s1">'fizzbuzz'</span><span class="p">,</span> <span class="s1">'46'</span><span class="p">,</span> <span class="s1">'47'</span><span class="p">,</span> <span class="s1">'fizz'</span><span class="p">,</span> <span class="s1">'49'</span><span class="p">,</span>
+        <span class="s1">'buzz'</span><span class="p">,</span> <span class="s1">'fizz'</span><span class="p">,</span> <span class="s1">'52'</span><span class="p">,</span> <span class="s1">'53'</span><span class="p">,</span> <span class="s1">'fizz'</span><span class="p">,</span> <span class="s1">'buzz'</span><span class="p">,</span> <span class="s1">'56'</span><span class="p">,</span> <span class="s1">'fizz'</span><span class="p">,</span>
+        <span class="s1">'58'</span><span class="p">,</span> <span class="s1">'59'</span><span class="p">,</span> <span class="s1">'fizzbuzz'</span><span class="p">,</span> <span class="s1">'61'</span><span class="p">,</span> <span class="s1">'62'</span><span class="p">,</span> <span class="s1">'fizz'</span><span class="p">,</span> <span class="s1">'64'</span><span class="p">,</span> <span class="s1">'buzz'</span><span class="p">,</span>
+        <span class="s1">'fizz'</span><span class="p">,</span> <span class="s1">'67'</span><span class="p">,</span> <span class="s1">'68'</span><span class="p">,</span> <span class="s1">'fizz'</span><span class="p">,</span> <span class="s1">'buzz'</span><span class="p">,</span> <span class="s1">'71'</span><span class="p">,</span> <span class="s1">'fizz'</span><span class="p">,</span> <span class="s1">'73'</span><span class="p">,</span>
+        <span class="s1">'74'</span><span class="p">,</span> <span class="s1">'fizzbuzz'</span><span class="p">,</span> <span class="s1">'76'</span><span class="p">,</span> <span class="s1">'77'</span><span class="p">,</span> <span class="s1">'fizz'</span><span class="p">,</span> <span class="s1">'79'</span><span class="p">,</span> <span class="s1">'buzz'</span><span class="p">,</span>
+        <span class="s1">'fizz'</span><span class="p">,</span> <span class="s1">'82'</span><span class="p">,</span> <span class="s1">'83'</span><span class="p">,</span> <span class="s1">'fizz'</span><span class="p">,</span> <span class="s1">'buzz'</span><span class="p">,</span> <span class="s1">'86'</span><span class="p">,</span> <span class="s1">'fizz'</span><span class="p">,</span> <span class="s1">'88'</span><span class="p">,</span>
+        <span class="s1">'89'</span><span class="p">,</span> <span class="s1">'fizzbuzz'</span><span class="p">,</span> <span class="s1">'91'</span><span class="p">,</span> <span class="s1">'92'</span><span class="p">,</span> <span class="s1">'fizz'</span><span class="p">,</span> <span class="s1">'94'</span><span class="p">,</span> <span class="s1">'buzz'</span><span class="p">,</span>
+        <span class="s1">'fizz'</span><span class="p">,</span> <span class="s1">'97'</span><span class="p">,</span> <span class="s1">'98'</span><span class="p">,</span> <span class="s1">'fizz'</span><span class="p">,</span> <span class="s1">'buzz'</span>
+    <span class="p">]</span>
+    <span class="k">return</span> <span class="n">fizz_buzz</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">output_brute</span> <span class="o">=</span> <span class="p">[</span><span class="n">fizz_buzz_brute</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">21</span><span class="p">)]</span>
+<span class="n">test_fizzbuzz_20</span><span class="p">(</span><span class="n">output_brute</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Tess Passed
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Standard-Way">
+<a class="anchor" href="#Standard-Way" aria-hidden="true"><span class="octicon octicon-link"></span></a>Standard Way<a class="anchor-link" href="#Standard-Way"> </a>
+</h2>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">fizz_buzz_standard</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">15</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">'fizzbuzz'</span>
+    <span class="k">elif</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">'buzz'</span>
+    <span class="k">elif</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">'fizz'</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">output_standard</span> <span class="o">=</span> <span class="p">[</span><span class="n">fizz_buzz_standard</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">21</span><span class="p">)]</span>
+<span class="n">test_fizzbuzz_20</span><span class="p">(</span><span class="n">output_standard</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Tess Passed
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Cycle-of-15">
+<a class="anchor" href="#Cycle-of-15" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cycle of 15<a class="anchor-link" href="#Cycle-of-15"> </a>
+</h2>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">fizz_buzz_c15</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">CYCLE_OF_15</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'fizzbuzz'</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">'fizz'</span><span class="p">,</span>
+                   <span class="kc">None</span><span class="p">,</span> <span class="s1">'buzz'</span><span class="p">,</span> <span class="s1">'fizz'</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span>
+                   <span class="kc">None</span><span class="p">,</span> <span class="s1">'fizz'</span><span class="p">,</span> <span class="s1">'buzz'</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span>
+                   <span class="s1">'fizz'</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">CYCLE_OF_15</span><span class="p">[</span><span class="n">n</span> <span class="o">%</span> <span class="mi">15</span><span class="p">]</span> <span class="ow">or</span> <span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">output_c15</span> <span class="o">=</span> <span class="p">[</span><span class="n">fizz_buzz_c15</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">21</span><span class="p">)]</span>
+<span class="n">test_fizzbuzz_20</span><span class="p">(</span><span class="n">output_c15</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Tess Passed
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let's first look at <code>CYCLE_OF_15[n%15]</code>. For this part of the function, if the input <code>n</code> is only divisible by 3, it will return <code>'fizz'</code>. If the input is only divisible by 5, it will return <code>'buzz'</code>. If it is divisible by both 3 and 5, it will return <code>'fizzbuzz'</code>. Otherwise, it returns <code>None</code>. Consider the following code.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">CYCLE_OF_15</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'fizzbuzz'</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">'fizz'</span><span class="p">,</span>
+               <span class="kc">None</span><span class="p">,</span> <span class="s1">'buzz'</span><span class="p">,</span> <span class="s1">'fizz'</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span>
+               <span class="kc">None</span><span class="p">,</span> <span class="s1">'fizz'</span><span class="p">,</span> <span class="s1">'buzz'</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span>
+               <span class="s1">'fizz'</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">17</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s1"> % 15 is:'</span><span class="p">,</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">15</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">' '</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'CYCLE_OF_15[</span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s1"> % 15] is:'</span><span class="p">,</span> <span class="n">CYCLE_OF_15</span><span class="p">[</span><span class="n">n</span> <span class="o">%</span> <span class="mi">15</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>3 % 15 is: 3 CYCLE_OF_15[3 % 15] is: fizz
+5 % 15 is: 5 CYCLE_OF_15[5 % 15] is: buzz
+15 % 15 is: 0 CYCLE_OF_15[15 % 15] is: fizzbuzz
+17 % 15 is: 2 CYCLE_OF_15[17 % 15] is: None
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now let's look at <code>CYCLE_OF_15[n % 15] or str(n)</code>. One interesting feature about Python is that for a statement <code>a or b</code>. If a is in <code>[None, [], '', False]</code>, <code>a or b</code> will be equal to <code>b</code>. Otherwise, it returns <code>a</code>. Consider the following code.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">the_input</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">'fizz'</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="p">[],</span> <span class="s1">''</span><span class="p">,</span> <span class="kc">False</span><span class="p">]:</span>
+    <span class="n">the_result</span> <span class="o">=</span> <span class="n">the_input</span> <span class="ow">or</span> <span class="s1">'b'</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">the_input</span><span class="si">}</span><span class="s1"> or b, we get: </span><span class="si">{</span><span class="n">the_result</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>fizz or b, we get: fizz
+None or b, we get: b
+[] or b, we get: b
+ or b, we get: b
+False or b, we get: b
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>So the idea of this function simple. If the number is divisible by 3, it will return <code>'fizz' or str(n)</code>, which is equal to <code>'fizz'</code>. The same logic applies to <code>'buzz'</code> and <code>'fizzbuzz'</code>. If the number is neither divisible by 3 nor by 5, it will return <code>None or str(n)</code>, which equals <code>str(n)</code>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Euclid's-Solution">
+<a class="anchor" href="#Euclid's-Solution" aria-hidden="true"><span class="octicon octicon-link"></span></a>Euclid's Solution<a class="anchor-link" href="#Euclid's-Solution"> </a>
+</h2>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">fizz_buzz_euclid</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">hi</span><span class="p">,</span> <span class="n">lo</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="nb">min</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+
+    <span class="k">while</span> <span class="n">hi</span> <span class="o">%</span> <span class="n">lo</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">hi</span><span class="p">,</span> <span class="n">lo</span> <span class="o">=</span> <span class="n">lo</span><span class="p">,</span> <span class="n">hi</span> <span class="o">%</span> <span class="n">lo</span>
+
+    <span class="k">return</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">),</span> <span class="mi">3</span><span class="p">:</span> <span class="s2">"fizz"</span><span class="p">,</span> <span class="mi">5</span><span class="p">:</span> <span class="s2">"buzz"</span><span class="p">,</span> <span class="mi">15</span><span class="p">:</span> <span class="s2">"fizzbuzz"</span><span class="p">}[</span><span class="n">lo</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">output_euclid</span> <span class="o">=</span> <span class="p">[</span><span class="n">fizz_buzz_euclid</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">21</span><span class="p">)]</span>
+<span class="n">test_fizzbuzz_20</span><span class="p">(</span><span class="n">output_euclid</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Tess Passed
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Trigonometry">
+<a class="anchor" href="#Trigonometry" aria-hidden="true"><span class="octicon octicon-link"></span></a>Trigonometry<a class="anchor-link" href="#Trigonometry"> </a>
+</h2>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">fizz_buzz_tri</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">fizz</span> <span class="o">=</span> <span class="s1">'fizz'</span> <span class="o">*</span> <span class="nb">int</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">tau</span> <span class="o">/</span> <span class="mi">3</span><span class="p">))</span>
+    <span class="n">buzz</span> <span class="o">=</span> <span class="s1">'buzz'</span> <span class="o">*</span> <span class="nb">int</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">tau</span> <span class="o">/</span> <span class="mi">5</span><span class="p">))</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">fizz</span> <span class="o">+</span> <span class="n">buzz</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">output_tri</span> <span class="o">=</span> <span class="p">[</span><span class="n">fizz_buzz_tri</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">21</span><span class="p">)]</span>
+<span class="n">test_fizzbuzz_20</span><span class="p">(</span><span class="n">output_tri</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Tess Passed
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="A-Big-Number">
+<a class="anchor" href="#A-Big-Number" aria-hidden="true"><span class="octicon octicon-link"></span></a>A Big Number<a class="anchor-link" href="#A-Big-Number"> </a>
+</h2>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">big_number</span> <span class="o">=</span> <span class="mh">0x134591c9a2c8e4d1647268b23934591c9a2c8e4d16</span>
+<span class="n">chunks</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">'(0|10|110|111)'</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">big_number</span><span class="si">:</span><span class="s2">0&gt;167b</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">label</span><span class="p">(</span><span class="n">chunk</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">),</span> <span class="s1">''</span><span class="p">,</span> <span class="s1">'fizz'</span><span class="p">,</span> <span class="s1">''</span><span class="p">,</span> <span class="s1">''</span><span class="p">,</span> <span class="s1">''</span><span class="p">,</span> <span class="s1">'buzz'</span><span class="p">,</span> <span class="s1">'fizzbuzz'</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">labels</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">chunk</span><span class="p">,</span> <span class="mi">2</span><span class="p">)]</span>
+<span class="n">output_big</span> <span class="o">=</span> <span class="p">[</span><span class="n">label</span><span class="p">(</span><span class="n">chunk</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">chunks</span><span class="p">)]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">test_fizzbuzz_20</span><span class="p">(</span><span class="n">output_big</span><span class="p">[:</span><span class="mi">20</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Tess Passed
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Infinite-Iterables">
+<a class="anchor" href="#Infinite-Iterables" aria-hidden="true"><span class="octicon octicon-link"></span></a>Infinite Iterables<a class="anchor-link" href="#Infinite-Iterables"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>TODO: add links for iterator and generator and proofread contents in this section.</strong></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fizzes</span> <span class="o">=</span> <span class="n">itertools</span><span class="o">.</span><span class="n">cycle</span><span class="p">([</span><span class="s1">''</span><span class="p">,</span> <span class="s1">''</span><span class="p">,</span> <span class="s1">'fizz'</span><span class="p">])</span>
+<span class="n">buzzes</span> <span class="o">=</span> <span class="n">itertools</span><span class="o">.</span><span class="n">cycle</span><span class="p">([</span><span class="s1">''</span><span class="p">,</span> <span class="s1">''</span><span class="p">,</span> <span class="s1">''</span><span class="p">,</span> <span class="s1">''</span><span class="p">,</span> <span class="s1">'buzz'</span><span class="p">])</span>
+<span class="n">numbers</span> <span class="o">=</span> <span class="n">itertools</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">fizz_buzzes_iter</span> <span class="o">=</span> <span class="p">((</span><span class="n">fizz</span> <span class="o">+</span> <span class="n">buzz</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+                    <span class="k">for</span> <span class="n">fizz</span><span class="p">,</span> <span class="n">buzz</span><span class="p">,</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">fizzes</span><span class="p">,</span> <span class="n">buzzes</span><span class="p">,</span> <span class="n">numbers</span><span class="p">))</span>
+
+<span class="n">output_iter</span> <span class="o">=</span> <span class="p">[</span><span class="nb">next</span><span class="p">(</span><span class="n">fizz_buzzes_iter</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">)]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">test_fizzbuzz_20</span><span class="p">(</span><span class="n">output_iter</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Tess Passed
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The central concept around this solultion is <code>iterable</code> and <code>iterators</code> in Python. But instead of discussing these two concepts in theory, we will try to understand this solution from a practical perspective. To understand more details related to iterables in Python, I will recommend you to watch this video or read the corresponding chapter in <em>Ten Essays ON FIZZ BUZZ</em>.</p>
+<p>We use the <code>itertools</code> library, which is part of the Python standard library and it was imported at the notebook of this notebook.
+The first method we use here is <code>itertools.cycle()</code>. If we look at the docstring of this method, we will see:</p>
+<blockquote>
+<p>Return elements from the iterables until it is exhausted. Then repeats the sequence indefinitely.</p>
+</blockquote>
+<p>That can be confusing. Let's first look at an example.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">cycle</span><span class="p">([</span><span class="s1">'a'</span><span class="p">,</span> <span class="s1">'b'</span><span class="p">,</span> <span class="s1">'c'</span><span class="p">]):</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">7</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">' '</span><span class="p">)</span>
+        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">break</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>a b c a b c a </pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>From the code above, we can better understand the sentence from the docstring. First, for the part "elements from the iterables", iterables refers to the list <code>['a', 'b', 'c']</code> and elements just refer to each value in the list. Second, "until it is exhausted" refers to the fact that it will keep returning elements from the list <code>['a', 'b', 'c']</code> until it runs through all of them, as we see from the output above. Finally, "then repeats the sequence indefinitely" means that it will continues to return elements from the list in that sequence (a, then b, then c) repeatly until we stop iterating from it. In the example above, we break the for loop.</p>
+<p>So, <code>fizzes</code> from <code>fizzes = itertools.cycle(['', '', 'fizz'])</code> will just keep return the '', then '', then 'fizz' and repeats. The same idea applies to <code>buzzes = itertools.cycle(['', '', '', '', 'buzz'])</code>.</p>
+<p>Now, let's look at <code>itertools.count(1)</code>. In short, when you iterate through <code>itertools.count(1)</code> in a for loop, it will keep returns a number (starts from 1) that plus one from the previous output indefinitely. Let's see an example.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span> <span class="s1">' '</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">break</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>1 2 3 4 5 6 7 8 9 </pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Note that where the sequence starts depends on what you put inside <code>itertools.count()</code>. If you do <code>itertools.count(-1)</code>, it will start from -1.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now let's look at <code>zip</code>, which allows us to iterate over multiple iterables in Python. Let's consider an example. Notice how i, j, k corresponds to each list inside <code>zip</code>.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">([</span><span class="s1">'i1'</span><span class="p">,</span> <span class="s1">'i2'</span><span class="p">],</span> <span class="p">[</span><span class="s1">'j1'</span><span class="p">,</span> <span class="s1">'j2'</span><span class="p">],</span> <span class="p">[</span><span class="s1">'k1'</span><span class="p">,</span> <span class="s1">'k2'</span><span class="p">]):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>i1 j1 k1
+i2 j2 k2
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>With that, we can try to understand the behavior in the code <code>((fizz + buzz) or str(n) for fizz, buzz, n in zip(fizzes, buzzes, numbers))</code>. Let's consider the output for the first five iterations.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fizzes</span> <span class="o">=</span> <span class="n">itertools</span><span class="o">.</span><span class="n">cycle</span><span class="p">([</span><span class="s1">''</span><span class="p">,</span> <span class="s1">''</span><span class="p">,</span> <span class="s1">'fizz'</span><span class="p">])</span>
+<span class="n">buzzes</span> <span class="o">=</span> <span class="n">itertools</span><span class="o">.</span><span class="n">cycle</span><span class="p">([</span><span class="s1">''</span><span class="p">,</span> <span class="s1">''</span><span class="p">,</span> <span class="s1">''</span><span class="p">,</span> <span class="s1">''</span><span class="p">,</span> <span class="s1">'buzz'</span><span class="p">])</span>
+<span class="n">numbers</span> <span class="o">=</span> <span class="n">itertools</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">fizz</span><span class="p">,</span> <span class="n">buzz</span><span class="p">,</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">fizzes</span><span class="p">,</span> <span class="n">buzzes</span><span class="p">,</span> <span class="n">numbers</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'fizz + buzz: </span><span class="si">{</span><span class="n">fizz</span> <span class="o">+</span> <span class="n">buzz</span><span class="si">}</span><span class="s1">, str(n): </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="si">}</span><span class="s1">'</span><span class="p">,</span>
+              <span class="sa">f</span><span class="s1">'(fizz + buzz) or str(n): </span><span class="si">{</span><span class="p">(</span><span class="n">fizz</span> <span class="o">+</span> <span class="n">buzz</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">break</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>fizz + buzz: , str(n): 1 (fizz + buzz) or str(n): 1
+fizz + buzz: , str(n): 2 (fizz + buzz) or str(n): 2
+fizz + buzz: fizz, str(n): 3 (fizz + buzz) or str(n): fizz
+fizz + buzz: , str(n): 4 (fizz + buzz) or str(n): 4
+fizz + buzz: buzz, str(n): 5 (fizz + buzz) or str(n): buzz
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The idea is that when <code>n</code> is divisible by 3, the <code>fizzes</code> will return <code>'fizz'</code>. Otherwise it returns an empty string. Simialry, when <code>n</code> is divisible by 5, the <code>buzzes</code> will return <code>'buzz'</code>. Otherwise it returns an empty string. Thus, when <code>n</code> is divisible by 3 or 5, or both, the function will return <code>'fizz'</code>, <code>'buzz'</code>, or <code>'fizzbuzz'</code> accordingly. Otherwise, it returns <code>str(n)</code>. For how the <code>or</code> plays in this, please review what we discussed for the solution "cycle of 15" above.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>One more thing. Instead of writing in like a for loop above, the code in the solution actually uses a syntax very similar to list comprehension.</p>
+<div class="highlight"><pre><span></span><span class="n">fizz_buzzes_iter</span> <span class="o">=</span> <span class="p">((</span><span class="n">fizz</span> <span class="o">+</span> <span class="n">buzz</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+                    <span class="k">for</span> <span class="n">fizz</span><span class="p">,</span> <span class="n">buzz</span><span class="p">,</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">fizzes</span><span class="p">,</span> <span class="n">buzzes</span><span class="p">,</span> <span class="n">numbers</span><span class="p">))</span>
+</pre></div>
+<p>But instead of using a list, it puts the expression into a generator. (Notice we use <code>()</code> instead of <code>[]</code>). We will dive into details about generator here. But in short, generator allowes us to access thoe values from those indifinite iterabels with the <code>next</code> statement without running out of memory. Let's see a quick example.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">example_generator</span> <span class="o">=</span> <span class="p">([</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">itertools</span><span class="o">.</span><span class="n">cycle</span><span class="p">([</span><span class="s1">'a'</span><span class="p">,</span> <span class="s1">'b'</span><span class="p">])))</span>
+<span class="p">[</span><span class="nb">next</span><span class="p">(</span><span class="n">example_generator</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[[2, 'a'], [3, 'b'], [4, 'a'], [5, 'b'], [6, 'a']]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>So this concludes our explanation. Let's see them in action.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fizzes</span> <span class="o">=</span> <span class="n">itertools</span><span class="o">.</span><span class="n">cycle</span><span class="p">([</span><span class="s1">''</span><span class="p">,</span> <span class="s1">''</span><span class="p">,</span> <span class="s1">'fizz'</span><span class="p">])</span>
+<span class="n">buzzes</span> <span class="o">=</span> <span class="n">itertools</span><span class="o">.</span><span class="n">cycle</span><span class="p">([</span><span class="s1">''</span><span class="p">,</span> <span class="s1">''</span><span class="p">,</span> <span class="s1">''</span><span class="p">,</span> <span class="s1">''</span><span class="p">,</span> <span class="s1">'buzz'</span><span class="p">])</span>
+<span class="n">numbers</span> <span class="o">=</span> <span class="n">itertools</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">fizz_buzzes_iter</span> <span class="o">=</span> <span class="p">((</span><span class="n">fizz</span> <span class="o">+</span> <span class="n">buzz</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+                    <span class="k">for</span> <span class="n">fizz</span><span class="p">,</span> <span class="n">buzz</span><span class="p">,</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">fizzes</span><span class="p">,</span> <span class="n">buzzes</span><span class="p">,</span> <span class="n">numbers</span><span class="p">))</span>
+
+<span class="p">[</span><span class="nb">next</span><span class="p">(</span><span class="n">fizz_buzzes_iter</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>['1', '2', 'fizz', '4', 'buzz']</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Random-Guessing">
+<a class="anchor" href="#Random-Guessing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Random Guessing<a class="anchor-link" href="#Random-Guessing"> </a>
+</h2>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">fizz_buzzes_random</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+    <span class="n">counts</span> <span class="o">=</span> <span class="p">[</span><span class="n">itertools</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="mi">1</span><span class="p">)]</span> <span class="o">*</span> <span class="mi">15</span>
+    <span class="k">for</span> <span class="n">group</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">counts</span><span class="p">):</span>
+        <span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">23_977_775</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">group</span><span class="p">:</span>
+            <span class="c1"># Just pick at random</span>
+            <span class="k">yield</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span>
+                <span class="p">[</span><span class="s1">'fizzbuzz'</span><span class="p">,</span> <span class="s1">'fizz'</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">),</span> <span class="s1">'buzz'</span><span class="p">]</span>
+            <span class="p">)</span>
+
+<span class="n">fb</span> <span class="o">=</span> <span class="n">fizz_buzzes_random</span><span class="p">()</span>
+<span class="n">output_random</span> <span class="o">=</span> <span class="p">[</span><span class="nb">next</span><span class="p">(</span><span class="n">fb</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">)]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">test_fizzbuzz_20</span><span class="p">(</span><span class="n">output_random</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Tess Passed
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Matrix-Multiplication">
+<a class="anchor" href="#Matrix-Multiplication" aria-hidden="true"><span class="octicon octicon-link"></span></a>Matrix Multiplication<a class="anchor-link" href="#Matrix-Multiplication"> </a>
+</h2>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">fizz_buzz_mtx</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">]])</span>
+    <span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">3</span><span class="p">,</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">5</span><span class="p">])</span>
+    <span class="k">return</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">),</span> <span class="s1">'fizz'</span><span class="p">,</span> <span class="s1">'buzz'</span><span class="p">,</span> <span class="s1">'fizzbuzz'</span><span class="p">][</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">w</span> <span class="o">@</span> <span class="n">v</span><span class="p">)]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">output_mtx</span> <span class="o">=</span> <span class="p">[</span><span class="n">fizz_buzz_mtx</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">21</span><span class="p">)]</span>
+<span class="n">test_fizzbuzz_20</span><span class="p">(</span><span class="n">output_mtx</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Tess Passed
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let's write this matrix multiplication code into a mathematical formula.</p>
+$$
+\begin{bmatrix}
+1 &amp;  0 &amp; 0 \\
+2 &amp; -2 &amp; 0 \\
+2 &amp;  0 &amp; -2 \\
+3 &amp; -3 &amp; -3 \\
+\end{bmatrix} \times
+
+\begin{bmatrix}
+1  &amp; n \% 3 &amp; n \% 5
+\end{bmatrix}
+=
+\begin{bmatrix}
+1  \\
+2 -  2 (n \% 3) \\
+2 -  2 (n \% 5) \\ 
+3 - 3(n \% 3) - 3 (n \% 5)
+\end{bmatrix}
+$$<p>Now let's define the resulting vector in a function with respect to n and see some of its outputs.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">generate_mtx_output</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">%</span> <span class="mi">3</span><span class="p">),</span> <span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">%</span> <span class="mi">5</span><span class="p">),</span> <span class="mi">3</span> <span class="o">-</span> <span class="mi">3</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">%</span> <span class="mi">3</span><span class="p">)</span> <span class="o">-</span> <span class="mi">3</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">%</span> <span class="mi">5</span><span class="p">)]</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">15</span><span class="p">]:</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">generate_mtx_output</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[ 1  2 -4 -6]
+[ 1 -2  2 -3]
+[ 1  0 -2 -6]
+[1 2 2 3]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Notice that when n is divisible by 3 but not divisible by 5, the second element will be the largest in the resulting array. When n is divisible by 5 but not divisible by 3, the 3rd element will be the largest. When n is divisible by both 3 and 5, the 4th element will be the largest. When n is not divisible by both 3 and 5, the first element will be the largest. We will write a formal proof for n is only divisible by 3. You should be able to develop similar proofs for others easily.</p>
+<p>Consider a positive integer n that is divisible by 3 but not divisible by 5. Then we have n % 3 = 0 and n \% 5 $\geq$ 1. Then, 2 - 2 <em> (n % 3) = 2. 2 - 2 </em> (n % 5) &lt;=0 and 3 - 3(n % 3) - 3 (n % 5) &lt;=0. Obviously, 2 &gt; 1 &gt; 0. Thus, when n is divisible by 3 but not by 5, the 2nd element in the array above will be the largest.</p>
+<p>Now let's consider the function <code>np.argmax</code>. This function simply returns which index has the largest element in a numpy array. Consider the following example. Notice the third element 2 is the largest in the array.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>3</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>With this information, we can extend our for loop above to see how this solution works.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">15</span><span class="p">]:</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">generate_mtx_output</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">max_index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">),</span> <span class="s1">'fizz'</span><span class="p">,</span> <span class="s1">'buzz'</span><span class="p">,</span> <span class="s1">'fizzbuzz'</span><span class="p">][</span><span class="n">max_index</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="s1">'max index:'</span><span class="p">,</span> <span class="n">max_index</span><span class="p">,</span> <span class="s1">'output:'</span><span class="p">,</span> <span class="n">output</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[ 1  2 -4 -6] max index: 1 output: fizz
+[ 1 -2  2 -3] max index: 2 output: buzz
+[ 1  0 -2 -6] max index: 0 output: 7
+[1 2 2 3] max index: 3 output: fizzbuzz
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The idea is that when n is divisible by 3 but not by 5, the max index will always be 1 and thus return <code>'fizz'</code>. Similar ideas apply to other situations. One interesting question is that how do we come up with the matrix <code>np.array([[1, 0, 0], [2, -2, 0], [2, 0, -2], [3, -3, -3]])</code> for the multiplication. The author discusses his thought process in the book. But we can also try another approach - using machine learning to automatically find those weights.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Machine-Learning">
+<a class="anchor" href="#Machine-Learning" aria-hidden="true"><span class="octicon octicon-link"></span></a>Machine Learning<a class="anchor-link" href="#Machine-Learning"> </a>
+</h2>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">fizz_buzz_class</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="k">return</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">gcd</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">15</span><span class="p">))</span>
+
+
+<span class="k">class</span> <span class="nc">Instance</span><span class="p">(</span><span class="n">NamedTuple</span><span class="p">):</span>
+    <span class="n">n</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">features</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span>
+    <span class="n">label</span><span class="p">:</span> <span class="nb">int</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">featurize</span><span class="p">:</span> <span class="n">Callable</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">'Instance'</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">Instance</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">featurize</span><span class="p">(</span><span class="n">n</span><span class="p">),</span> <span class="n">fizz_buzz_class</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+
+
+<span class="k">def</span> <span class="nf">evaluate</span><span class="p">(</span><span class="n">model</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">,</span> 
+             <span class="n">data</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span>
+             <span class="n">verbose</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="n">num_correct</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="c1"># Don't compute gradients when evaluating</span>
+    <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+        <span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">features</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+            <span class="n">predicted</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">model</span><span class="p">(</span><span class="n">features</span><span class="p">))</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+            <span class="n">num_correct</span> <span class="o">+=</span> <span class="n">predicted</span> <span class="o">==</span> <span class="n">label</span>
+
+            <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+                <span class="n">check</span> <span class="o">=</span> <span class="s2">"✓"</span> <span class="k">if</span> <span class="n">predicted</span> <span class="o">==</span> <span class="n">label</span> <span class="k">else</span> <span class="s2">"×"</span>
+                <span class="n">outputs</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">),</span> <span class="s1">'fizz'</span><span class="p">,</span> <span class="s1">'buzz'</span><span class="p">,</span> <span class="s1">'fizzbuzz'</span><span class="p">]</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">check</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">outputs</span><span class="p">[</span><span class="n">predicted</span><span class="p">],</span> <span class="n">outputs</span><span class="p">[</span><span class="n">label</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="n">num_correct</span>
+
+
+<span class="k">def</span> <span class="nf">binary_digits</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">num_digits</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+    <span class="n">digits</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_digits</span><span class="p">):</span>
+        <span class="c1"># Need to use floats</span>
+        <span class="n">digits</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">n</span> <span class="o">%</span> <span class="mi">2</span><span class="p">))</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="n">n</span> <span class="o">//</span> <span class="mi">2</span>
+    <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">digits</span><span class="p">)</span>
+
+
+<span class="n">training_data</span> <span class="o">=</span> <span class="p">[</span><span class="n">Instance</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">binary_digits</span><span class="p">)</span>
+                 <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">101</span><span class="p">,</span> <span class="mi">1023</span><span class="p">)]</span>
+
+<span class="n">test_data</span> <span class="o">=</span> <span class="p">[</span><span class="n">Instance</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">binary_digits</span><span class="p">)</span>
+             <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">101</span><span class="p">)]</span>
+
+<span class="n">input_dim</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">training_data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">features</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">train_model</span><span class="p">(</span>
+    <span class="n">hidden_dim</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">25</span><span class="p">,</span>
+    <span class="n">num_epochs</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2500</span><span class="p">,</span>
+    <span class="n">seed</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">12</span><span class="p">,</span>
+    <span class="n">output_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">:</span>
+    <span class="n">torch</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+
+    <span class="n">model</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
+        <span class="c1"># Linear layer: input_dim -&gt; hidden_dim</span>
+        <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">in_features</span><span class="o">=</span><span class="n">input_dim</span><span class="p">,</span> <span class="n">out_features</span><span class="o">=</span><span class="n">hidden_dim</span><span class="p">),</span>
+        <span class="c1"># ReLU(x) = max(x, 0)</span>
+        <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(),</span>
+        <span class="c1"># Linear layer: hidden_dim -&gt; 4</span>
+        <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">in_features</span><span class="o">=</span><span class="n">hidden_dim</span><span class="p">,</span> <span class="n">out_features</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+    <span class="p">)</span>
+
+    <span class="n">loss</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">CrossEntropyLoss</span><span class="p">()</span>
+    <span class="n">optimizer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">AdamW</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">())</span>
+
+    <span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_epochs</span><span class="p">):</span>
+        <span class="n">epoch_loss</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+        <span class="k">for</span> <span class="n">batch</span> <span class="ow">in</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">training_data</span><span class="p">,</span> 
+                                <span class="n">batch_size</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> 
+                                <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+            <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+
+            <span class="n">predictions</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">batch</span><span class="o">.</span><span class="n">features</span><span class="p">)</span>
+            <span class="n">error</span> <span class="o">=</span> <span class="n">loss</span><span class="p">(</span><span class="n">predictions</span><span class="p">,</span> <span class="n">batch</span><span class="o">.</span><span class="n">label</span><span class="p">)</span>
+            <span class="n">error</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+            <span class="n">epoch_loss</span> <span class="o">+=</span> <span class="n">error</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+            <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+
+        <span class="n">num_correct</span> <span class="o">=</span> <span class="n">evaluate</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> 
+                               <span class="n">test_data</span><span class="p">,</span> 
+                               <span class="n">verbose</span><span class="o">=</span><span class="n">epoch</span> <span class="o">%</span> <span class="mi">100</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"epoch: </span><span class="si">{</span><span class="n">epoch</span><span class="si">:</span><span class="s2">&gt;5</span><span class="si">}</span><span class="s2"> "</span>
+            <span class="sa">f</span><span class="s2">"accuracy: </span><span class="si">{</span><span class="n">num_correct</span><span class="si">}</span><span class="s2">/100 "</span>
+            <span class="sa">f</span><span class="s2">"loss: </span><span class="si">{</span><span class="n">epoch_loss</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+    <span class="n">evaluate</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">test_data</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">model</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="wpan03/ds_blog"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/ds_blog/2021/08/27/fizzbuzz.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/ds_blog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/ds_blog/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/ds_blog/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/fastai" title="fastai"><svg class="svg-icon grey"><use xlink:href="/ds_blog/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/fastdotai" title="fastdotai"><svg class="svg-icon grey"><use xlink:href="/ds_blog/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
