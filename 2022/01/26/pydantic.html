@@ -1,0 +1,109 @@
+<h2 id="my-understanding-of-pydantic">My Understanding of Pydantic</h2>
+
+<p>I am recently reading the book <em>Robust Python</em> by Patrick Viafore. In this blog post, I want to discuss the usage of <a href="https://pydantic-docs.helpmanual.io/">pydantic library</a>, introduced in chapter 14 of the book.</p>
+
+<p>I have heard about pydantic for a long time since its usage in popular libraries like FastAPI. However, I am still confused about the functionality of this library when reading the introduction of documentation. This book helps me understand this topic a lot better.</p>
+
+<p>In short, pydantic can help us validate (or parse) data during the runtime with type checks and avoid using a large amount of if-else conditions to validate the data. You might be as confused as me when you read this sentence for the first time. Let’s walk through an example together.</p>
+
+<p>Suppose we have a deep learning model training script. One of the function inside it requires the user to pass the learning rate and optimizer in a yaml file. You can learn more about yaml file <a href="https://www.cloudbees.com/blog/yaml-tutorial-everything-you-need-get-started">here</a> if you are not familiar with it.</p>
+
+<p>The yaml file might look like the following.</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">model_config</span><span class="pi">:</span>
+  <span class="na">learning_rate</span><span class="pi">:</span> <span class="m">0.01</span>
+  <span class="na">optimizer</span><span class="pi">:</span> <span class="s">adam</span>
+</code></pre></div></div>
+
+<p>A sample function can look like the following:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span>
+
+<span class="kn">import</span> <span class="nn">yaml</span>
+
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">'config.yaml'</span><span class="p">)</span> <span class="k">as</span> <span class="n">yaml_file</span><span class="p">:</span>
+    <span class="n">config</span><span class="p">:</span> <span class="n">Dict</span> <span class="o">=</span> <span class="n">yaml</span><span class="p">.</span><span class="n">safe_load</span><span class="p">(</span><span class="n">yaml_file</span><span class="p">)</span>
+<span class="n">model_config</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s">"model_config"</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">train_model</span><span class="p">(</span><span class="n">model_config</span><span class="p">:</span> <span class="n">Dict</span><span class="p">):</span>
+    <span class="n">lr</span> <span class="o">=</span> <span class="n">model_config</span><span class="p">[</span><span class="s">"learning_rate"</span><span class="p">]</span>
+    <span class="n">optimizer</span> <span class="o">=</span> <span class="n">config_file</span><span class="p">[</span><span class="s">"optmizer"</span><span class="p">]</span>
+    <span class="c1"># the model training code ...
+</span></code></pre></div></div>
+
+<p>However, we want to restrict the learning rate to be a float between 0.0 and 1.0, and force optimizer to be one of the following: sgd, rmsprop, adam. Instead of throwing the error when the model begins to train or letting the model fail silently (the code runs but the model cannot converge because of a huge learning rate), we want to catch this error when we load the data from yaml.</p>
+
+<p>One naive solution is to use try-except and if-else statements like the following.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">try</span><span class="p">:</span>
+    <span class="n">lr</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">model_config</span><span class="p">[</span><span class="s">"learning_rate"</span><span class="p">])</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="nb">ValueError</span><span class="p">(</span><span class="s">"learning rate needs to be a float"</span><span class="p">)</span>
+
+<span class="n">optimizer</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">model_config</span><span class="p">[</span><span class="s">"optimizer"</span><span class="p">])</span>
+
+<span class="k">if</span> <span class="n">lr</span> <span class="o">&lt;</span> <span class="mf">0.</span> <span class="ow">or</span> <span class="n">lr</span> <span class="o">&gt;</span> <span class="mf">1.</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="nb">ValueError</span><span class="p">(</span><span class="s">"learning rate needs to between 0.0 and 1.0"</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">optimizer</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s">"sgd"</span><span class="p">,</span> <span class="s">"rmsprop"</span><span class="p">,</span> <span class="s">"adam"</span><span class="p">]:</span>
+    <span class="k">raise</span> <span class="nb">ValueError</span><span class="p">(</span><span class="s">"optimizer needs to be sgd, rmsprop, or adam"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>This can get extremely long and complex when have a large list of hyper parameters. Also, even we want to use <a href="https://realpython.com/lessons/type-hinting/">type hint</a> and type checker like <a href="http://mypy-lang.org/">mypy</a> to get rid of the checking for type like the following (Note that you need to have Python 3.8 or above to use the <a href="https://adamj.eu/tech/2021/07/09/python-type-hints-how-to-use-typing-literal/">Literal type</a>).</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Literal</span><span class="p">,</span> <span class="n">TypedDict</span>
+
+<span class="k">class</span> <span class="nc">ModelConfig</span><span class="p">(</span><span class="n">TypedDict</span><span class="p">):</span>
+    <span class="n">learning_rate</span><span class="p">:</span> <span class="nb">float</span> 
+    <span class="n">optimizer</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s">"sgd"</span><span class="p">,</span> <span class="s">"rmsprop"</span><span class="p">,</span> <span class="s">"adam"</span><span class="p">]</span>
+ 
+<span class="k">def</span> <span class="nf">load_yaml</span><span class="p">(</span><span class="n">file_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ModelConfig</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span> <span class="k">as</span> <span class="n">yaml_file</span><span class="p">:</span>
+  	  <span class="n">config</span> <span class="o">=</span> <span class="n">yaml</span><span class="p">.</span><span class="n">safe_load</span><span class="p">(</span><span class="n">yaml_file</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">config</span><span class="p">[</span><span class="s">"model_config"</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p>We are still out of luck because we don’t know the information in the yaml file until we actually run the script (during runtime). Thus, even we have a yaml file like this:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">model_config</span><span class="pi">:</span>
+  <span class="na">learning_rate</span><span class="pi">:</span> <span class="s">not_learning</span>
+  <span class="na">optimizer</span><span class="pi">:</span> <span class="m">1.0</span>
+</code></pre></div></div>
+
+<p>Type checker like mypy will not throw any error. This is when pydantic comes in. It checks type during the runtime.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">confloat</span>
+
+<span class="k">class</span> <span class="nc">ModelConfig</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">learning_rate</span><span class="p">:</span> <span class="n">confloat</span><span class="p">(</span><span class="n">gt</span><span class="o">=</span><span class="mf">0.</span><span class="p">,</span> <span class="n">lt</span><span class="o">=</span><span class="mf">1.</span><span class="p">)</span>
+    <span class="n">optimizer</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s">"sgd"</span><span class="p">,</span> <span class="s">"rmsprop"</span><span class="p">,</span> <span class="s">"adam"</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">load_yaml</span><span class="p">(</span><span class="n">file_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ModelConfig</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span> <span class="k">as</span> <span class="n">yaml_file</span><span class="p">:</span>
+        <span class="n">config</span> <span class="o">=</span> <span class="n">yaml</span><span class="p">.</span><span class="n">safe_load</span><span class="p">(</span><span class="n">yaml_file</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ModelConfig</span><span class="p">(</span><span class="o">**</span><span class="n">config</span><span class="p">[</span><span class="s">"model_config"</span><span class="p">])</span>
+</code></pre></div></div>
+
+<p>Let’s explain few things in this code.</p>
+
+<ul>
+  <li>We inherit from the <code class="language-plaintext highlighter-rouge">BaseModel</code> class of the pydantic model so when we construct this class during the run time, the type checking will be executed.</li>
+  <li>The <a href="https://pydantic-docs.helpmanual.io/usage/types/#arguments-to-confloat">confloat</a> type in pydantic allows us to restrict the range of a float value. In our case, we require it to be greater than 0 or less than 1.</li>
+  <li>We use double asterisk (<code class="language-plaintext highlighter-rouge">**</code>) to construct the class from a dictionary. You can learn more about it <a href="https://stackoverflow.com/questions/36901/what-does-double-star-asterisk-and-star-asterisk-do-for-parameters">here</a>.</li>
+</ul>
+
+<p>Now, if we run the script by passing it the wrong yaml config file above, we will get the following error.</p>
+
+<pre><code class="language-raw">ValidationError: 2 validation errors for ModelConfig
+learning_rate
+  value is not a valid float (type=type_error.float)
+optimizer
+  unexpected value; permitted: 'sgd', 'rmsprop', 'adam' (type=value_error.const; given=1.0; permitted=('sgd', 'rmsprop', 'adam'))
+</code></pre>
+
+<p>Note that pydantic does the validation for us automatically and simplifies our code quite a bit. To reiterate, pydantic can help us validate (or parse) data during the runtime with type checks and avoid using a large amount of if-else conditions to validate the data. Hopefully now this sentence makes more sense to you.</p>
+
+<p>My understanding of pydantic is still at a basic level and I encourage you to check out the <a href="https://pydantic-docs.helpmanual.io/">documentation of pydantic</a> to learn more about it. Also, the <em>robust python</em> is a really nice book for introducing typing in Python and many other good coding practices.</p>
+
