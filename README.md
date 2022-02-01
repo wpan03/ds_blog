@@ -1,5 +1,7 @@
 # Journal of Data Science Journey
 
+You can visit my blog post [here](https://wpan03.github.io/ds_blog/). 
+
 ## Visions :smile:
 
 This site stores my blog post for some data science topics. There are definitely many people who understand these topics better than me.
@@ -10,9 +12,9 @@ However, I am inspired by the following quote from the book *Deep Learning for C
 
 I will be very happy if my efforts can help someone better understand these topics in their data science journey.
 
-## Website :globe_with_meridians:
+## Content 
 
-The majority of my blog is stored in [this site](https://wpan03.github.io/ds_blog/) built with [fastpages](https://github.com/fastai/fastpages). I write about following topics:
+I write about following topics:
 
 + My understanding of certain topics that once confused me
 + Implementation of certain methods that I had a hard time to find online
