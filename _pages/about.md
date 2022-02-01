@@ -4,8 +4,11 @@ title: About Me
 permalink: /about/
 ---
 
-This website is powered by **[fastpages](https://github.com/fastai/fastpages)** [^1].
+Hi there, I am Wenyang (Martin) 👋
 
+I am a data scientist at Robinhood. 
 
+> I love to learn new technologies and methods to create beautiful products and improve the quality of life for me and others. This website contains my blog post to share methods and tools I learned in my data science journey. Hope it can also help you a little bit!
 
-[^1]:a blogging platform that natively supports Jupyter notebooks in addition to other formats.
+You can connect with me via [LinkedIn](https://www.linkedin.com/in/wenyang-pan/).
+
